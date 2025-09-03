@@ -9,11 +9,8 @@ from langchain.schema import BaseRetriever, Document
 from langchain_huggingface.chat_models import ChatHuggingFace
 from transformers import pipeline
 
-# -------------------------------
-# CONFIG
-# -------------------------------
-DATA_DIR = "F:/KrishiAI/Data"         # your PDF folder
-CHROMA_DIR = "F:/KrishiAI/db/chroma"  # where embeddings will be saved
+DATA_DIR = "F:/KrishiAI/Data"         
+CHROMA_DIR = "F:/KrishiAI/db/chroma"  
 
 EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 LLM_MODEL_NAME = "google/flan-t5-base"
@@ -25,10 +22,7 @@ QUERY_TYPES = {
     "4": "Crop Season",
     "5": "Temperature/Growth Conditions"
 }
-
-# -------------------------------
-# LOAD AND SPLIT PDF DOCUMENTS
-# -------------------------------
+# document load karne ke liye
 def load_documents():
     docs = []
     for file_name in os.listdir(DATA_DIR):
@@ -46,9 +40,8 @@ def split_documents(documents):
     print(f"[INFO] Split into {len(split_docs)} chunks")
     return split_docs
 
-# -------------------------------
-# CREATE CHROMA VECTORSTORE
-# -------------------------------
+# vector storing ke liye
+
 def create_chroma_vectorstore(documents):
     embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
     vectordb = Chroma(persist_directory=CHROMA_DIR, embedding_function=embeddings)
@@ -56,9 +49,7 @@ def create_chroma_vectorstore(documents):
     vectordb.persist()
     print(f"[INFO] Stored {len(documents)} embeddings in ChromaDB")
 
-# -------------------------------
-# CUSTOM ICAR PLACEHOLDER RETRIEVER
-# -------------------------------
+
 class ICARWebRetriever(BaseRetriever):
     def get_relevant_documents(self, query: str):
         return [
@@ -68,9 +59,7 @@ class ICARWebRetriever(BaseRetriever):
             )
         ]
 
-# -------------------------------
-# HYBRID RETRIEVER (PDF + ICAR)
-# -------------------------------
+
 def create_hybrid_retriever():
     embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
     vectordb = Chroma(persist_directory=CHROMA_DIR, embedding_function=embeddings)
@@ -103,9 +92,6 @@ PROMPT = PromptTemplate(
     template=prompt_template
 )
 
-# -------------------------------
-# CREATE LLM PIPELINE
-# -------------------------------
 def create_pipeline_chain():
     retriever = create_hybrid_retriever()
 

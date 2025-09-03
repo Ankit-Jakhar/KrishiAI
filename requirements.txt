@@ -1,0 +1,36 @@
+# Core
+python-dotenv
+langchain
+langchain-community
+langchain.core
+
+# Hugging Face (LLM + Embeddings)
+transformers
+sentence-transformers
+accelerate
+huggingface-hub
+
+#google gemini
+langchain-google-genai
+fastapi
+uvicorn
+streamlit
+
+
+
+
+
+
+# Backend API
+fastapi
+uvicorn
+
+# Frontend (UI for Farmers / Demo)
+streamlit
+
+# SQL Database for storing user queries
+sqlalchemy
+pymysql # MySQL
+# psycopg2==2.9.9 # PostgreSQL (optional)
+
+

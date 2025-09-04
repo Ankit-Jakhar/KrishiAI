@@ -12,7 +12,7 @@ from transformers import pipeline
 DATA_DIR = "F:/KrishiAI/Data"         
 CHROMA_DIR = "F:/KrishiAI/db/chroma"  
 
-EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 LLM_MODEL_NAME = "google/flan-t5-base"
 
 QUERY_TYPES = {

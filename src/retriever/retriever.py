@@ -8,6 +8,10 @@ from langchain.schema import Document
 
 from langdetect import detect
 import os
+import torch
+torch.set_num_threads(4)  # Limit threads
+device = "cpu"
+
 
 
 load_dotenv()
@@ -36,11 +40,11 @@ Prompt =PromptTemplate(
     
 )
 
-EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+EMBEDDING_MODEL =  "sentence-transformers/all-MiniLM-L6-v2"
 
 
 
-embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL ,model_kwargs={"device": "cpu"})
 vectordb = Chroma(persist_directory=CHROMA_DIR, embedding_function=embeddings)
 retriever = vectordb.as_retriever(search_type="mmr" ,search_kwargs={"k": 3})
 

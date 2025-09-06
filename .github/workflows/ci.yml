@@ -29,9 +29,10 @@ jobs:
           flake8 . --max-line-length=120
 
       - name: Run tests
-  run: |
-    pip install pytest
-    PYTHONPATH=. pytest || echo "No tests yet"
+        run: |
+          pip install pytest
+          PYTHONPATH=. pytest || echo "No tests yet"
+
 
 
     

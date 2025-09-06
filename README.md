@@ -1,56 +1,54 @@
-AI-powered Agriculture Expert Assistant
+🌾 KrishiAI – AI-powered Agriculture Expert Assistant
 
-KrishiAI is a Retrieval-Augmented Generation (RAG) based application designed to assist farmers, researchers, and agri-experts with accurate agricultural knowledge. It combines the power of FastAPI, Streamlit, LLMs, and vector databases to answer user queries.
+KrishiAI is a Retrieval-Augmented Generation (RAG) based application designed to empower farmers, researchers, and agri-experts with accurate agricultural knowledge.
+It integrates LLMs, embeddings, and a vector database to provide reliable, contextual, and human-like responses to agriculture-related queries.
 
 🚀 Features
 
-Streamlit Frontend – Simple, user-friendly interface for asking questions
+🎯 AI-powered Expert System – Accurate, domain-specific agricultural knowledge
 
-FastAPI Backend – High-performance API serving AI responses
+💻 Streamlit Frontend – Simple and user-friendly interface for asking questions
 
-RAG Pipeline – Retrieve domain-specific knowledge from ChromaDB and generate answers with an LLM
+⚡ FastAPI Backend – High-performance API to serve AI responses
 
-Embeddings – Uses HuggingFace models for semantic search
+🔎 RAG Pipeline – Retrieve knowledge from ChromaDB and generate context-rich answers
 
-Generative AI – Provides natural, human-like responses
+🧠 Semantic Search – Uses HuggingFace embeddings for precise query understanding
 
-CI/CD Ready – GitHub Actions workflow included for automated testing & deployment
+🤖 Generative AI – Natural, human-like responses powered by Google Gemini
 
-Docker Support – Easy containerized deployment
+🔄 CI/CD Ready – Automated testing & deployment with GitHub Actions
+
+🐳 Docker Support – Seamless containerized deployment
 
 🛠️ Tech Stack
 
 Python 3.11+
 
-FastAPI
- – Backend framework
+FastAPI – Backend framework
 
-Streamlit
- – Frontend UI
+Streamlit – Frontend UI
 
-LangChain
- – Orchestration of RAG pipeline
+LangChain – RAG pipeline orchestration
 
-ChromaDB
- – Vector database for embeddings
+ChromaDB – Vector database for embeddings
 
-HuggingFace Transformers
- – Embedding model + LLM integration
+HuggingFace Transformers – Embedding model
 
-GitHub Actions – CI/CD
-Docker – Containerization
-Deployment - AWS EC2 Server
+Google Gemini Transformers – LLM integration
 
-📂 Project Structure
-KrishiAI/
-│── main.py                 # FastAPI backend
-│── app.py                  # Streamlit frontend
-│── requirements.txt        # Python dependencies
-│── .gitignore              # Ignored files (e.g., .env, venv)
-│── .env                    # API keys & secrets (not pushed to GitHub)
-│── src/
-│   ├── retriever/
-│   │    └── retriever.py   # RAG retriever logic
-│   └── models/
-│        └── schemas.py     # Pydantic models for API requests/responses
-│── tests/                  # (optional) Unit tests
+GitHub Actions – CI/CD automation
+
+Docker – Containerization & deployment
+
+🌱 Use Cases
+
+Farmers – Ask crop, soil, irrigation, and weather-related queries
+
+Researchers – Get insights from agricultural data and literature
+
+Agri-Experts – Support decision-making with AI-powered assistance
+
+🤝 Contributing
+
+Contributions are welcome! Feel free to fork this repo, raise issues, or submit PRs to improve KrishiAI.
